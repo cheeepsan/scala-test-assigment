@@ -75,7 +75,7 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)
                 } else time :: acc
               case "close" =>
                 if (index == 0) acc else time :: acc
-              case _ => acc
+              case _ => throw new RuntimeException("Exception during response building, schedule is not correct at this point")
             }
         }.reverse
         buildText(tail, fullList ++ ListMap(head.name -> processedList))

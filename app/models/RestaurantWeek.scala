@@ -9,19 +9,19 @@ object Schedule {
 
   implicit val reads: Reads[Schedule] = new Reads[Schedule] {
     override def reads(o: JsValue): JsResult[Schedule] = {
-      val default: List[(String, Long)]  = List.empty
+      val defaultException = () => throw JsonParseException("Json is malformed, unable to process schedule")
 
       val result: List[(String, Long)] = o match {
-        case JsObject(_) => default
+        case JsObject(_) => defaultException()
         case JsArray(arr) =>
          arr.toList.flatMap {
             json: JsValue =>
               json.as[JsObject].values.toList match {
                 case List(k, v) => Some(k.as[String].toLowerCase -> v.as[Long])
-                case _ => None
+                case _ => defaultException()
               }
           }
-        case _ => default
+        case _ => defaultException()
       }
 
       JsSuccess(apply(result))
