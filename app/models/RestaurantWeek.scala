@@ -59,8 +59,8 @@ object RestaurantSchedule {
             case (weekDay, openingHours: JsValue) =>
               Day.apply(weekDay, openingHours)
           }
-        case JsArray(_) => List.empty //Not implemented
-        case _ => List.empty
+        case JsArray(_) => throw new JsonParseException("Json is malformed, weekday schedule should be object, not array")
+        case _ => throw new JsonParseException("Json is malformed, please check format again")
       }
 
       JsSuccess(apply(weekdays))
