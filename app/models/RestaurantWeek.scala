@@ -17,7 +17,7 @@ object Schedule {
          arr.toList.flatMap {
             json: JsValue =>
               json.as[JsObject].values.toList match {
-                case List(k, v) => Some(k.as[String] -> v.as[Long])
+                case List(k, v) => Some(k.as[String].toLowerCase -> v.as[Long])
                 case _ => None
               }
           }

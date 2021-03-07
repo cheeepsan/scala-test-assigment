@@ -22,7 +22,7 @@ object WeekDay extends Enumeration { self =>
     case WeekDay.Thu => "Thursday"
     case WeekDay.Fri => "Friday"
     case WeekDay.Sat => "Saturday"
-    case WeekDay.Sun => "Sundays"
+    case WeekDay.Sun => "Sunday"
     case WeekDay.Undefined => "Undefined"
   }
 }

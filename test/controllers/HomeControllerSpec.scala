@@ -41,7 +41,7 @@ class HomeControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
 
     "process JSON requests to schedule from payload1" in {
       val json = Json.parse(Source.fromFile("test/json/payload1.json").getLines.mkString)
-      val result = Source.fromFile("test/json/payloadResponse").getLines.mkString("\n")
+      val result = Source.fromFile("test/json/payloadResponse1").getLines.mkString("\n")
 
       val controller = inject[HomeController]
       val response = sendPost(controller, json)
