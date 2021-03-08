@@ -1,17 +1,18 @@
-#Wolt assigment
+# Wolt assigment
 ## How to get this to work
 1. You need Java same as or above version 8
     - in cmd do 'java --version', if it shows you version from java 8 (inclusive), you are good to go
     - if you have no java, install Oracle JDK or OpenJDK 8+ version
 
 2. Install sbt: https://www.scala-sbt.org
-3. run sbt with command "sbt", once sbt shell is up - run project with "run" command
+3. Run sbt with command "sbt", once sbt shell is up - run project with "run" command
     - if sbt shell tells you that ports for webserver are in use - use "run %any port number", eg "run 9010"
+4. To run tests use "test" command in the sbt shell context
 ## What is this about
 Wolt wanted a programm that would parse JSON to readable plaintext format. 
 Once programm is up, send a POST request to address: "localhost:%portnumber%/processTimetable"
 ## How to use
-Example:
+Example: <br/>
 POST localhost:9000/processTimetable <br/>
 HEADERS: "Content-type: application/json"<br/>
 PAYLOAD:

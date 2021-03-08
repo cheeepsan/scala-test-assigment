@@ -57,7 +57,7 @@ object RestaurantSchedule {
           //Map to List to ensure the order
           keyValueMap.toList.map {
             case (weekDay, openingHours: JsValue) =>
-              Day.apply(weekDay, openingHours)
+              Day.apply(weekDay.toLowerCase, openingHours)
           }
         case JsArray(_) => throw new JsonParseException("Json is malformed, weekday schedule should be object, not array")
         case _ => throw new JsonParseException("Json is malformed, please check format again")
