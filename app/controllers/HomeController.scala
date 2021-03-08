@@ -56,7 +56,7 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)
   }
 
   def renderSchedule(days: List[Day]): ListMap[WeekDay.Value, List[String]] = {
-    implicit val df: SimpleDateFormat = new SimpleDateFormat("hh a")
+    implicit val df: SimpleDateFormat = new SimpleDateFormat("h a")
     df.setTimeZone(TimeZone.getTimeZone("GMT"))
 
     @tailrec
