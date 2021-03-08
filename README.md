@@ -71,3 +71,22 @@ PAYLOAD:
         }
   ]
 }
+```
+
+# Part 2
+"Tell us what do you think about the data format. Is the current JSON structure the
+best way to store that kind of data or can you come up with a better version?"<br/>
+
+JSON structure was not as optimal as it could be, it is volatile in an essence and not too straightforward to use. <br/>
+
+Overall structure would be much more simple if weekdays were not used as keys, weekday
+should be a part of JSON object, not the key. <br/>
+
+JSON would benefit a lot if data within JSON body was ordered, so developers could parse object
+in any way they like and could preserve order later through the use of additional attributes.<br/>
+
+Epoch as a time format itself is not bat, it is easy to use and parse. However, everyone would benefit
+if epoch data contained correct date as well. Furthermore, weekday data could be omitted from body if epoch contained full info. <br/>
+
+Array of open-closed data could be normalized. Personally I would prefer to change it to
+boolean attribute, so we would have to use as little plaintext as possible.
